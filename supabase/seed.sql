@@ -1,0 +1,3 @@
+-- Deliberately no production sample records or fabricated verified nutrition.
+-- The opt-in browser demo is in src/features/demo.ts and is isolated from Supabase.
+-- Create real accounts and a household through the app, then enter your own recipes.

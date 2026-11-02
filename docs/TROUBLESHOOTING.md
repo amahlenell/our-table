@@ -1,0 +1,13 @@
+# Troubleshooting
+
+- **A setup screen appears:** set both Supabase public environment variables, or explicitly opt into the local demo with `NEXT_PUBLIC_DEMO_MODE=true`. Restart after changing public variables.
+- **Empty household / save is denied:** create or join your household under Settings before saving shared records. Verify the migration and Auth profile trigger were applied.
+- **Your partner's changes are stale:** refocus the browser tab or reload. The app refreshes cloud data after writes and on focus; realtime collaboration is not implemented.
+- **A token cannot be accepted:** verify the invited email, sign in with that exact verified account, check the 48-hour expiration, and ensure the token was not used and the household has fewer than two people. Creating a new invitation revokes unused older ones.
+- **Nutrition shows —:** link every non-zero ingredient and supply a suitable gram equivalent for volume, pieces or servings. Missing values are intentional. A food label lacking fibre should not be interpreted as zero fibre.
+- **Photo upload fails:** use JPEG, PNG or WebP up to 4 MB; image pixel count must be below 40 million. Confirm the private storage bucket and policies exist. On Vercel the platform request size limit also applies. Signed photos refresh when household data reloads.
+- **Import is declined:** the site may restrict automation, lack complete JSON-LD, redirect unsafely or time out. Robots rules are handled conservatively, including wildcard restrictions. No paywall or authentication bypass is supported. Enter that recipe manually.
+- **AI is unavailable:** configure both `OPENAI_API_KEY` and `AI_MODEL`, check the model supports Responses structured outputs, and review provider billing/limits. The manual cookbook continues to work. Usage is limited to 10 draft requests per user per hour.
+- **Browser tests cannot launch Edge:** install Edge or remove the channel setting and run `npx playwright install chromium`. Do not run the demo suite against your real signed-in household.
+- **npm 12 reports EALLOWREMOTE while refreshing a lockfile:** npm's newer URL dependency restriction can affect registry tarballs, particularly with mirrors. Review the lockfile sources; this project uses registry packages. For the one affected command, `npm install --package-lock-only --allow-remote=all` updates the lockfile without changing the global security setting. Normal setup uses `npm ci`. See the [official npm configuration documentation](https://docs.npmjs.com/using-npm/config/).
+- **Demo changes do not survive a reload:** check browser storage permissions or capacity. Large local photos consume space. The app warns if storage is full; use a connected household for durable data.
