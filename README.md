@@ -15,9 +15,7 @@ A shared recipe book for two: save recipes, explore nutrition, and plan meals wi
 
 Next.js App Router, React, strict TypeScript, Tailwind CSS, Radix UI, Supabase, USDA FoodData Central and the OpenAI Responses API.
 
-The visual identity uses an earthy palette, rounded components and self-hosted Fredoka/Nunito typography.
-
-## Editing
+## Project structure
 
 - `src/app/`: application pages, layouts and API routes.
 - `src/components/`: interface components, recipe editor and nutrition tools.
